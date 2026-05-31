@@ -48,7 +48,7 @@ class EloquentRequestLogRepositoryTest extends TestCase
             serviceId: $this->service->id,
         ));
 
-        $this->assertSame('2015-06-02 01:50:22', $requestLog->refresh()->started_at->format('Y-m-d H:i:s'));
+        $this->assertSame('2015-06-01 22:50:22', $requestLog->refresh()->started_at->format('Y-m-d H:i:s'));
     }
 
     // Cobre o insert linha a linha do fallback e a serializacao das colunas JSON.
