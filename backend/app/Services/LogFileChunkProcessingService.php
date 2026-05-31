@@ -199,8 +199,10 @@ class LogFileChunkProcessingService
 
     private function extractConsumerData(array $payload): array
     {
+        $consumerId = $payload['authenticated_entity']['consumer_id'] ?? null;
+
         return [
-            'uuid' => $payload['authenticated_entity']['consumer_id']['uuid'] ?? null,
+            'uuid' => is_array($consumerId) ? ($consumerId['uuid'] ?? null) : $consumerId,
         ];
     }
 

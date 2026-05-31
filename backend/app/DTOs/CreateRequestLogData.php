@@ -2,6 +2,8 @@
 
 namespace App\DTOs;
 
+use Carbon\CarbonImmutable;
+
 readonly class CreateRequestLogData
 {
     public function __construct(
@@ -45,10 +47,19 @@ readonly class CreateRequestLogData
             'gateway_latency' => $this->gatewayLatency,
             'request_latency' => $this->requestLatency,
             'client_ip' => $this->clientIp,
-            'started_at' => $this->startedAt,
+            'started_at' => $this->normalizeTimestamp($this->startedAt),
             'request_headers' => $this->requestHeaders,
             'response_headers' => $this->responseHeaders,
             'querystring' => $this->querystring,
         ];
+    }
+
+    private function normalizeTimestamp(int $timestamp): string
+    {
+        if ($timestamp > 9999999999) {
+            $timestamp = (int) floor($timestamp / 1000);
+        }
+
+        return CarbonImmutable::createFromTimestamp($timestamp, config('app.timezone'))->toDateTimeString();
     }
 }

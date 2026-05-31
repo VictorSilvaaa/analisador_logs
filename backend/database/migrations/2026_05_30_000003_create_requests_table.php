@@ -25,7 +25,7 @@ return new class extends Migration
             $table->unsignedInteger('gateway_latency')->nullable();
             $table->unsignedInteger('request_latency')->nullable();
             $table->string('client_ip', 45)->nullable();
-            $table->unsignedInteger('started_at');
+            $table->dateTime('started_at');
             $table->json('request_headers')->nullable();
             $table->json('response_headers')->nullable();
             $table->json('querystring')->nullable();
