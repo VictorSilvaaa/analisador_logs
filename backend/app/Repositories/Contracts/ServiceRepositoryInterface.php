@@ -12,4 +12,8 @@ interface ServiceRepositoryInterface
     public function findByExternalId(string $externalId): ?Service;
 
     public function updateOrCreate(CreateServiceData $data): Service;
+
+    public function upsertMany(array $rows): void;
+
+    public function findIdsByExternalIds(array $externalIds): array;
 }

@@ -12,4 +12,8 @@ interface ConsumerRepositoryInterface
     public function findByUuid(string $uuid): ?Consumer;
 
     public function firstOrCreate(CreateConsumerData $data): Consumer;
+
+    public function upsertMany(array $rows): void;
+
+    public function findIdsByUuids(array $uuids): array;
 }

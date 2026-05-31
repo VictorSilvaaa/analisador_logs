@@ -5,6 +5,8 @@ namespace App\DTOs;
 readonly class CreateRequestLogData
 {
     public function __construct(
+        public string $sourceFilePath,
+        public int $sourceLineNumber,
         public string $method,
         public string $uri,
         public string $url,
@@ -30,6 +32,8 @@ readonly class CreateRequestLogData
         return [
             'consumer_id' => $this->consumerId,
             'service_id' => $this->serviceId,
+            'source_file_path' => $this->sourceFilePath,
+            'source_line_number' => $this->sourceLineNumber,
             'method' => $this->method,
             'uri' => $this->uri,
             'url' => $this->url,

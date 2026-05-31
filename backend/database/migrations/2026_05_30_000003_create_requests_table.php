@@ -12,6 +12,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('consumer_id')->nullable()->constrained()->nullOnDelete();
             $table->foreignId('service_id')->nullable()->constrained()->nullOnDelete();
+            $table->string('source_file_path', 512);
+            $table->unsignedInteger('source_line_number');
             $table->string('method', 20);
             $table->text('uri');
             $table->text('url');
@@ -33,6 +35,7 @@ return new class extends Migration
             $table->index('response_status');
             $table->index('client_ip');
             $table->index('started_at');
+            $table->unique(['source_file_path', 'source_line_number'], 'requests_source_file_line_unique');
         });
     }
 

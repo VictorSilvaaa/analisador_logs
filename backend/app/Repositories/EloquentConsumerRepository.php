@@ -27,4 +27,33 @@ class EloquentConsumerRepository implements ConsumerRepositoryInterface
             $data->toArray(),
         );
     }
+
+    public function upsertMany(array $rows): void
+    {
+        if ($rows === []) {
+            return;
+        }
+
+        $now = now();
+
+        $rows = array_map(fn (array $row): array => [
+            'uuid' => $row['uuid'],
+            'created_at' => $now,
+            'updated_at' => $now,
+        ], $rows);
+
+        Consumer::query()->upsert(
+            $rows,
+            ['uuid'],
+            ['updated_at'],
+        );
+    }
+
+    public function findIdsByUuids(array $uuids): array
+    {
+        return Consumer::query()
+            ->whereIn('uuid', $uuids)
+            ->pluck('id', 'uuid')
+            ->all();
+    }
 }

@@ -12,6 +12,8 @@ class RequestLog extends Model
     protected $fillable = [
         'consumer_id',
         'service_id',
+        'source_file_path',
+        'source_line_number',
         'method',
         'uri',
         'url',
