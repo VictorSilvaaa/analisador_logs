@@ -1,0 +1,55 @@
+{
+  "info": {
+    "_postman_id": "35908fb4-3c59-465e-a3df-285de5358db0",
+    "name": "analisadorlog",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "33463771"
+  },
+  "item": [
+    {
+      "name": "relatorios",
+      "item": [
+        {
+          "name": "agrupado_consumer",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
+        },
+        {
+          "name": "agrupado_service",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
+        },
+        {
+          "name": "tempo_medio",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "processar_arquivo",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    },
+    {
+      "name": "bem_vindo",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    }
+  ]
+}

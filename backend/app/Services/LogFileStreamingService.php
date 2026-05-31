@@ -7,7 +7,7 @@ use RuntimeException;
 
 class LogFileStreamingService
 {
-    public const CHUNK_SIZE = 500;
+    public const CHUNK_SIZE = 400;
 
     public function process(string $filePath): void
     {
